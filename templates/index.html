@@ -8,19 +8,26 @@
   <title>Mission to Mars</title>
   
   <!-- Favicons -->
-  <link href="../img/favicon.png" rel="icon">
+  <link href="../static/img/favicon.png" rel="icon">
 
   <!-- Bootstrap CSS File -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+      .jumbotron {
+       background-image: url("../static/img/565_main.jpg");
+       background-size: cover;
+     }
+  </style>
 
  </head>
-
 <body>
   <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
+      <h1 style="color: #ffffff">Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
@@ -28,13 +35,13 @@
     <div class="card-deck py-3">
         <div class="card">
           <div class="card-block">
-            <h2 class="card-title">Latest Mars News</h4>
+            <h2><a ><i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp; Latest Mars News</a></h2>
             <p class="card-text">{{ mars_data_to_render.mars_news.news_p }}</p>
           </div>
         </div>
         <div class="card">
           <div class="card-block">
-            <h2 class="card-title">Current Weather on Mars</h4>
+              <h2><a ><i class="fa fa-sun-o" aria-hidden="true"></i>&nbsp; Current Weather on Mars</a></h2>
             <p class="card-text">{{ mars_data_to_render.mars_weather }}.</p>
           </div>
         </div>
@@ -42,38 +49,41 @@
     
     <div class="row py-3">
       <div class="col-md-6">
-        <h2 class="heading">Featured Mars Image</h2>
+          <h2><a ><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp; Featured Mars Image</a></h2>
         <img class="img-fluid" src="{{ mars_data_to_render.mars_feat_img }}" alt="Featured Mars Image">
       </div>
         <div class="col-md-6">
-          <h2 class="heading">Mars Facts</h2>
+            <h2><a ><i class="fa fa-list" aria-hidden="true"></i>&nbsp; Mars Facts</a></h2>
           {{ mars_data_to_render.mars_facts|safe }}
         </div>
     </div>
     <hr>
     <div class="row py-3">
       <div class="col-md-12">
-          <h2 class="heading">Mars Hemisphere Images</h2>
+          <h2><a ><i class="fa fa-mars" aria-hidden="true"></i>&nbsp; Mars Hemishpere Images</a></h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
+          <h3>{{ mars_data_to_render.mars_hemi_imgs[0].title }}</h3>
         <img class="img-fluid" src="{{ mars_data_to_render.mars_hemi_imgs[0].img_url }}" alt="">
       </div>
       <div class="col-md-6">
+          <h3>{{ mars_data_to_render.mars_hemi_imgs[1].title }}</h3>
           <img class="img-fluid" src="{{ mars_data_to_render.mars_hemi_imgs[1].img_url }}" alt="">
       </div>
     </div>
     <hr>
     <div class="row">
       <div class="col-md-6">
+          <h3>{{ mars_data_to_render.mars_hemi_imgs[2].title }}</h3>
           <img class="img-fluid" src="{{ mars_data_to_render.mars_hemi_imgs[2].img_url }}" alt="">
       </div>
       <div class="col-md-6">
+          <h3>{{ mars_data_to_render.mars_hemi_imgs[3].title }}</h3>
           <img class="img-fluid" src="{{ mars_data_to_render.mars_hemi_imgs[3].img_url }}" alt="">
       </div>
     </div>
-
   </div>
 </body>
 
